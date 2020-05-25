@@ -57,7 +57,7 @@ some kind of analytics, to "see people" in the space (old-school visitor counter
 
 [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) vs. [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) … maybe just never clear it, a visitor can collect a theorhetically infinite number of "can openers" (or whatever)
 
-[sketch of a 3d/virtual "room" with "doors" to various artists' works (`iframe`s?)]
+![sketch of a 3d/virtual \"room\" with \"doors\" to various artists' works (`iframe`s?)](https://user-images.githubusercontent.com/810398/82846064-0ea22d00-9eb5-11ea-9cb6-bb5e60ac4ec7.jpg "sketch of a 3d/virtual \"room\" with \"doors\" to various artists' works (`iframe`s?)")
 
 - can there be multiple rooms/hallways
 - can people be in the main room together? what about individual project works/sites
