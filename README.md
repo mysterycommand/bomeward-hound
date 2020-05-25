@@ -4,6 +4,69 @@ A prototype of a thing
 
 ---
 
+## Notes from the planning meeting (May 21, 2020):
+
+**Inspiration:** Yorbs/ITP thesis show: [yorb.itp.io](https://yorb.itp.io/), also (folks associated with Yorbs, mostly, iirc):
+
+- [yorb.online](https://yorb.online/)
+- [bigtwin.net](http://www.bigtwin.net/)
+- [aidanjnelson.com](https://www.aidanjnelson.com/)
+
+Other links:
+
+- [teamlab.art](https://www.teamlab.art/) <-- only one interactive exhibit occupies a room at a time, the other "waits outside"
+- [cargo.site](https://cargo.site/) <-- a bunch of cool/stylish site templates and customization options, but no free tier ($99 per year or $13 per month)
+- [Cooper Hewitt - Digital Mansion](https://www.cooperhewitt.org/digital-mansion/) <-- "the best […] online resources and a few […] favorite objects from Cooper Hewitt’s collection"
+
+More notes (less inspirational, linked, more just me capturing keywords from the discussion):
+
+- a 3d room
+- live performances?
+  - set list? … show times?
+  - recordings? … an archive?
+- moderation
+  - authentatication? <-- Google's Firebase has a pretty nice/easy to set up "auth" system: [firebase.google.com/docs/auth](https://firebase.google.com/docs/auth/)
+  - spam / abuse / attacks … will the show really even be that popular?
+
+More like, "what does it look like?" thoughts:
+
+- an initial "portal"
+- rooms
+- "one time" or "continuing" (e.g. is it an archive of some kind?)
+- how does it hang together?
+  - web rings
+  - a chill zone / a party room
+  - "what's the vibe?"
+  - vibe as wayfinding mechanism
+
+What kinds of projects do we want to/can we support?:
+
+- video (prerecorded)
+- performance/zoom/stream … live and/or interactive/participatory
+- 2d/3d "still" media
+- interactive (non-performance) … games and game-like things
+- **what are the opportunities for crossover**
+  - an inventory
+  - "call backs" (to previously seen/visited/experienced projects)
+  - a scavenger hunt
+  - easter eggs
+  - somethink kind of like old point-and-click adventure games where you maybe don't know why you're collecting these things or what to do with them and eventually they add up to something, or there's a way to use them to "affect the world"
+  - "what's the reward?" - more content!
+
+some kind of analytics, to "see people" in the space (old-school visitor counter or something like that? … "There are X other people in this room") maybe a kind of heat map of who's been where/when (annonymized ofc)
+
+[`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) vs. [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) … maybe just never clear it, a visitor can collect a theorhetically infinite number of "can openers" (or whatever)
+
+[sketch of a 3d/virtual "room" with "doors" to various artists' works (`iframe`s?)]
+
+- can there be multiple rooms/hallways
+- can people be in the main room together? what about individual project works/sites
+- spacial audio? some kind of global chat?
+- can we do 3d in 3d?
+- should we just use hubs, or yorbs, or something else like that?
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
