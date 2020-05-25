@@ -1,7 +1,22 @@
 {
   "name": "bomeward-hound",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "description": "a prototype of a thing",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mysterycommand/bomeward-hound.git"
+  },
+  "keywords": [
+    "react-three-fiber",
+    "prototype"
+  ],
+  "author": "Matt Hayes <matt@mysterycommand.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mysterycommand/bomeward-hound/issues"
+  },
+  "homepage": "https://mysterycommand.com/bomeward-hound",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
