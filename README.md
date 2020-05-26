@@ -21,9 +21,13 @@ Other links:
 More notes (less inspirational, linked, more just me capturing keywords from the discussion):
 
 - a 3d room
+
+Tickets and Performances
+Is there a way to create a 'ticket box office' for showtimes? Essentially listing showtimes then allowing links to calendar invite, e-ticket, or the content creator's preferred calendar system and/or performance platform. 
 - live performances?
   - set list? … show times?
   - recordings? … an archive?
+
 - moderation
   - authentatication? <-- Google's Firebase has a pretty nice/easy to set up "auth" system: [firebase.google.com/docs/auth](https://firebase.google.com/docs/auth/)
   - spam / abuse / attacks … will the show really even be that popular?
