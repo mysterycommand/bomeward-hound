@@ -55,6 +55,6 @@
     "@types/react-redux": "7.1.9",
     "prettier": "2.0.5",
     "react-scripts": "3.4.1",
-    "typescript": "3.9.3"
+    "typescript": "3.9.5"
   }
 }
