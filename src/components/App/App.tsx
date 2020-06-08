@@ -8,6 +8,7 @@ const urls: string[] = [
   'https://s4y.us',
   'https://mysterycommand.com',
   'https://webglsamples.org/aquarium/aquarium.html',
+  'http://bl.ocks.org/s4y/raw/89483ebe78e54fd1c6bd9a5d30a179a5/',
 ];
 
 export const App: FC = () => {
