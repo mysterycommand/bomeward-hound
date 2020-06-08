@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/bomeward-hound/precache-manifest.59870e889248780fbe0e2ae31230bd8f.js"
+  "/bomeward-hound/precache-manifest.d6a5d70c362101d077c78036693a97d1.js"
 );
 
 self.addEventListener('message', (event) => {
