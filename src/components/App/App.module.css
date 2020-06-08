@@ -8,10 +8,19 @@
   overflow: hidden;
 }
 
-.pages {
+.doors {
   display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
-.page {
-  composes: fullSize;
+.door {
+  line-height: 0;
+}
+
+.room {
+  width: 100vw;
+  height: 100vh;
+  border: none;
 }
