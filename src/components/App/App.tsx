@@ -3,7 +3,7 @@ import { animated, useTransition } from 'react-spring';
 
 import styles from './App.module.css';
 
-const rooms: string[] = [
+const urls: string[] = [
   'https://theweeklyweekly.com/',
   'https://s4y.us',
   'https://mysterycommand.com',
@@ -14,8 +14,8 @@ export const App: FC = () => {
   const doorsRef = useRef<HTMLOListElement>(null);
   const innerWidthRef = useRef(0);
 
-  const [currentRoom, setCurrentRoom] = useState(0);
-  const [direction, setDirection] = useState<'next' | 'prev'>('next');
+  const [room, setRoom] = useState(0);
+  const [dir, setDir] = useState<'next' | 'prev'>('next');
 
   useEffect(() => {
     const onResize = () => {
@@ -30,19 +30,19 @@ export const App: FC = () => {
   }, []);
 
   const onClickPrev = useCallback(() => {
-    setCurrentRoom((c) => (c + rooms.length - 1) % rooms.length);
-    setDirection('prev');
+    setRoom((r) => (r + urls.length - 1) % urls.length);
+    setDir('prev');
   }, []);
 
   const onClickNext = useCallback(() => {
-    setCurrentRoom((c) => (c + 1) % rooms.length);
-    setDirection('next');
+    setRoom((r) => (r + 1) % urls.length);
+    setDir('next');
   }, []);
 
-  const transitions = useTransition(currentRoom, (p) => p, {
+  const transitions = useTransition(room, (p) => p, {
     enter: { transform: 'translate3d(0%, 0, 0)' },
     leave: {
-      transform: `translate3d(${direction === 'next' ? '-' : ''}100%, 0, 0)`,
+      transform: `translate3d(${dir === 'next' ? -100 : 100}%, 0, 0)`,
     },
   });
 
@@ -50,11 +50,11 @@ export const App: FC = () => {
     <div className={styles.app}>
       <ol ref={doorsRef} className={styles.doors}>
         {transitions.map(({ item, props, key }) => {
-          const room = rooms[item];
+          const url = urls[item];
 
           return (
             <animated.li key={key} className={styles.door} style={props}>
-              <iframe className={styles.room} title={room} src={room} />
+              <iframe className={styles.room} title={url} src={url} />
             </animated.li>
           );
         })}
