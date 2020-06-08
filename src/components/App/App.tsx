@@ -1,58 +1,73 @@
-import React from 'react';
+import React, { FC, useEffect, useRef, useState, useCallback } from 'react';
+import { animated, useTransition } from 'react-spring';
 
-import { Counter } from '../../features/counter/Counter';
-import logo from './logo.svg';
+import styles from './App.module.css';
 
-import './App.css';
+const urls: string[] = [
+  'https://theweeklyweekly.com/',
+  'https://s4y.us',
+  'https://mysterycommand.com',
+  'https://webglsamples.org/aquarium/aquarium.html',
+  'http://bl.ocks.org/s4y/raw/89483ebe78e54fd1c6bd9a5d30a179a5/',
+];
 
-export function App() {
+export const App: FC = () => {
+  const doorsRef = useRef<HTMLOListElement>(null);
+  const innerWidthRef = useRef(0);
+
+  const [room, setRoom] = useState(0);
+  const [dir, setDir] = useState<'next' | 'prev'>('next');
+
+  useEffect(() => {
+    const onResize = () => {
+      innerWidthRef.current = window.innerWidth;
+    };
+    onResize();
+
+    window.addEventListener('resize', onResize, { passive: true });
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  const onClickPrev = useCallback(() => {
+    setRoom((r) => (r + urls.length - 1) % urls.length);
+    setDir('prev');
+  }, []);
+
+  const onClickNext = useCallback(() => {
+    setRoom((r) => (r + 1) % urls.length);
+    setDir('next');
+  }, []);
+
+  const transitions = useTransition(room, (p) => p, {
+    enter: { transform: 'translate3d(0%, 0, 0)' },
+    leave: {
+      transform: `translate3d(${dir === 'next' ? -100 : 100}%, 0, 0)`,
+    },
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className={styles.app}>
+      <ol ref={doorsRef} className={styles.doors}>
+        {transitions.map(({ item, props, key }) => {
+          const url = urls[item];
+
+          return (
+            <animated.li key={key} className={styles.door} style={props}>
+              <iframe className={styles.room} title={url} src={url} />
+            </animated.li>
+          );
+        })}
+      </ol>
+      <footer className={styles.hud}>
+        <button className={styles.nav} onClick={onClickPrev}>
+          previous room
+        </button>
+        <button className={styles.nav} onClick={onClickNext}>
+          next room
+        </button>
+      </footer>
     </div>
   );
-}
+};

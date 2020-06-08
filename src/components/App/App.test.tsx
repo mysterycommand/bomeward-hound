@@ -5,12 +5,13 @@ import { Provider } from 'react-redux';
 import { store } from '../../app/store';
 import { App } from './App';
 
-test('renders learn react link', () => {
+test('renders previous room and next room buttons', () => {
   const { getByText } = render(
     <Provider store={store}>
       <App />
     </Provider>,
   );
 
-  expect(getByText(/learn/i)).toBeInTheDocument();
+  expect(getByText(/previous room/i)).toBeInTheDocument();
+  expect(getByText(/next room/i)).toBeInTheDocument();
 });
