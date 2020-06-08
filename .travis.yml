@@ -1,0 +1,39 @@
+language: node_js
+cache: yarn
+
+env:
+  global:
+    - secure: SndU3+Q7HuPk5OMHJHCA42BHvzBO/31XxAm1YHnGp7ts/08PmLW2Z2zPNXkgPo82qn8+gnOKSx+ZC7bNKvBo61WtIgQqkVjEppFfhnU7yYwheqPrVTzgh3zbvymsSGdg1Xq85Gnb9uPFtSefUvR1NiX85EUJCIHcdGRMpvTAqTHpFTr+wkDw90R1jsgvNqlXlIF+2sp06Z78YTgPM97oV8GbWKUaLswMdT8yH5tI80b2iq1z7dAZ12jXwbAcbQoB8hJRZm36kLtMEPjcSCVDrFMUvfBhUHfJkeEn20To9Q+Gg2cN3e23AOMCcD8Wz1Y6kPad5ipA+QQ5tKF6E6/a5ZYjWZWgF6xrHN1R2TW6sgVW/TeuyXxZmrBBS2VPhcNka8fRLMiIDOjO7tFKNBl4LpyDq786xzeRLkJ6hAdfERElaFz8dAgyUGdYvfXuvjCdGnefvcN/OBF/RqZBHbxihJNc01eBKxyR21r0zugm9lhRiqF2VKbli9ymCAS+DI+RRaAmeDopJF2nz5HJRBwXlqwkTF0neVhKXzLqCJ2DHj3BbLJIz22GMRsihPKrFqp3tUrXppC4AA1VYKuAyMH0wYwAJmmG2woeYTJ2FWhWo4LtehME9qVSQss9crNQP+GZOTZVF2GWB+wNTGz13fT0adO9MzniJstA7ieGwMTcZCo=
+    - secure: SBhNycVgv+YEftWEwvhpTwHTfwXOtMA0kiPmchouVCB8sO0W2zVAoIJ9g8rflPJUveUTYTcWue5Tg2m4j+djVjbt1pwBth4vjkmvnTCLYcwBqElAOxe31QcpWD8AAr6KiXAt8IfCO4pqRvoUU03NkulLufzG6K4YqdM7TJq8PzzhIf7Yl1Z5rsuq5ca+OmL234Q6ocyodTDmN1sVRTae6H3oLXlQ+ei3ir79Quf34Bc/MsqpGfJAkmJe7yxHLCc00Fw0th67p3yOdXufXPV4B+l5BSoXmrU2NxIQ9vjaLQtzeWgerWbF4cQIqwVYxyAbQeudD74I5v0o3FU3DtSGRF/S8BvUZRScC6ACGSwsXTP0dhI90p8mVSC5kIxG7Uy7k3/Q32WJlIwimGx/j2NjqfAwBov2iQfVj1A/sMZfjkRswVSfWAF/yWul5YgW9QVct6S8ZDAwPu4X9jAU9hnG9UMxyK7PB4Akbj7HMFkHxW/XcwBwYRKCQeRKI2CIqCCVgayM/znmJlAo+7Vl1rL18cLo3PbtdRp89pg8+j1Ji0RXNYa9aY6cNg+lY4yqW6u1wEdDXDLzStY83XJDcJBopgf7HD0QF0409tu7RHawuYxbYi7UyYy4oEiPU7UBUmLhC7fqayBaWMznLVmRGlGisV0Y9Eqw8MF/1wN2vRMzLh4=
+
+before_install:
+  # get the right npm version
+  - NPM_VERSION=`node -pe "require('./package.json').engines.npm"`
+  - if [ `npm --version` != "$NPM_VERSION" ]; then
+    npm install --global npm@${NPM_VERSION};
+    fi
+
+  # get the right yarn version
+  - YARN_VERSION=`node -pe "require('./package.json').engines.yarn"`
+  - if [ `yarn --version` != "$YARN_VERSION" ]; then
+    curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version $YARN_VERSION;
+    export PATH=$HOME/.yarn/bin:$PATH;
+    fi
+
+script:
+  - yarn lint
+  - yarn test
+  - yarn build
+
+deploy:
+  # deploy the site
+  - provider: pages
+    repo: mysterycommand/bomeward-hound
+    target_branch: gh-pages
+    github_token: $GH_TOKEN
+    allow_empty_commit: true
+    skip_cleanup: true
+    keep_history: true
+    local_dir: build
+    on:
+      branch: master
