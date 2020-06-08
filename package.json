@@ -17,11 +17,17 @@
     "url": "https://github.com/mysterycommand/bomeward-hound/issues"
   },
   "homepage": "https://mysterycommand.com/bomeward-hound",
+  "engines": {
+    "node": ">=12",
+    "npm": "6.14.5",
+    "yarn": "1.22.4"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "postbuild": "react-snap",
     "test": "react-scripts test",
+    "lint": "eslint 'src/**/*.@(j|t)s?(x)'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
