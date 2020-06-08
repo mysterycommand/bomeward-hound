@@ -8,13 +8,6 @@ export const App: FC = () => (
       <li className={styles.door}>
         <iframe
           className={styles.room}
-          title="https://webglsamples.org/aquarium/aquarium.html"
-          src="https://webglsamples.org/aquarium/aquarium.html"
-        />
-      </li>
-      <li className={styles.door}>
-        <iframe
-          className={styles.room}
           title="https://theweeklyweekly.com/"
           src="https://theweeklyweekly.com/"
         />
@@ -33,6 +26,17 @@ export const App: FC = () => (
           src="https://mysterycommand.com"
         />
       </li>
+      <li className={styles.door}>
+        <iframe
+          className={styles.room}
+          title="https://webglsamples.org/aquarium/aquarium.html"
+          src="https://webglsamples.org/aquarium/aquarium.html"
+        />
+      </li>
     </ol>
+    <footer className={styles.hud}>
+      <button className={styles.nav}>previous room</button>
+      <button className={styles.nav}>next room</button>
+    </footer>
   </div>
 );
