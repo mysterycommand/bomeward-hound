@@ -62,7 +62,7 @@
     "@types/react-dom": "16.9.8",
     "@types/react-redux": "7.1.9",
     "prettier": "2.0.5",
-    "react-scripts": "3.4.1",
+    "react-scripts": "3.4.2",
     "react-snap": "https://github.com/mysterycommand/react-snap#build/bump-deps",
     "typescript": "3.9.7"
   }
