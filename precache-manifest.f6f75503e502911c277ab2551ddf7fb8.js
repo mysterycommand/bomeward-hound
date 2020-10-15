@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "01fde2a833d4a843a91ddf8b6f52182a",
+    "revision": "c1b8498787aee056d85dc264e007d3ca",
     "url": "/bomeward-hound/index.html"
   },
   {
@@ -8,12 +8,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/bomeward-hound/static/css/main.d061d105.chunk.css"
   },
   {
-    "revision": "52363f9ca12dfff2b7d6",
-    "url": "/bomeward-hound/static/js/2.4107ebff.chunk.js"
+    "revision": "ac57140d50b3ef4eb715",
+    "url": "/bomeward-hound/static/js/2.c8627706.chunk.js"
   },
   {
-    "revision": "c64c486544348f10a6d6c716950bc223",
-    "url": "/bomeward-hound/static/js/2.4107ebff.chunk.js.LICENSE.txt"
+    "revision": "a64acf8e3ad6aa1497056f0bb9a7ce4f",
+    "url": "/bomeward-hound/static/js/2.c8627706.chunk.js.LICENSE.txt"
   },
   {
     "revision": "07816ed5a86f8a649053",
